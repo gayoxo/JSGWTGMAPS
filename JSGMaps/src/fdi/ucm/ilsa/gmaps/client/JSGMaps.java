@@ -21,6 +21,7 @@ import fdi.ucm.server.interconect.model.OperationalValueJSON;
 public class JSGMaps implements EntryPoint {
 	
 	private final static String iconvalue="gmaps.png";
+	private static JSMap JSMAPElement;
 	
 	static {
         export();
@@ -59,9 +60,9 @@ public class JSGMaps implements EntryPoint {
 	 private static native void export() /*-{
      $wnd.JSGMapsgetIconData = @fdi.ucm.ilsa.gmaps.client.JSGMaps::getIcon();
      $wnd.JSGMapsgetParamData = @fdi.ucm.ilsa.gmaps.client.JSGMaps::getIcon();
-     $wnd.JSGMapssetContextView = @fdi.ucm.ilsa.gmaps.client.JSGMaps::setContextView(Ljava/lang/String;JIZ);
-     $wnd.JSGMapssetContextEdit = @fdi.ucm.ilsa.gmaps.client.JSGMaps::setContextView(Ljava/lang/String;JIZ);
-     $wnd.JSGMapspersist = @fdi.ucm.ilsa.gmaps.client.JSGMaps::getIcon();
+     $wnd.JSGMapssetContextView = @fdi.ucm.ilsa.gmaps.client.JSGMaps::setContextView(Ljava/lang/String;Ljava/lang/Long;IZ);
+     $wnd.JSGMapssetContextEdit = @fdi.ucm.ilsa.gmaps.client.JSGMaps::setContextView(Ljava/lang/String;Ljava/lang/Long;IZ);
+     $wnd.JSGMapspersist = @fdi.ucm.ilsa.gmaps.client.JSGMaps::persistJS();
  }-*/;
 	 
 	 
@@ -74,7 +75,6 @@ public class JSGMaps implements EntryPoint {
 		eval($wnd.str)
 
 	}-*/;
-	
 	
 	public static native void setContextDiv(Panel context, String idrandomdoct) /*-{
 	
@@ -91,7 +91,11 @@ public class JSGMaps implements EntryPoint {
 	    	return iconvalue;
 	    }
 	 
-	 private static String setContextView(String randomIdVars, long contextId, int Height, boolean isgrammar) {
-	    	return iconvalue;
+	 private static void setContextView(String randomIdVars, Long contextId, int Height, boolean isgrammar) {
+		  JSMAPElement=	new JSMap(randomIdVars,contextId,Height,isgrammar);
 	    }
+	 
+	 public static void persistJS() {
+		 JSMAPElement.persistJS();
+		}
 }
