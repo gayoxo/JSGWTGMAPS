@@ -60,7 +60,7 @@ public class JSGMaps implements EntryPoint {
      $wnd.JSGMapsgetIconData = @fdi.ucm.ilsa.gmaps.client.JSGMaps::getIcon();
      $wnd.JSGMapsgetParamData = @fdi.ucm.ilsa.gmaps.client.JSGMaps::getIcon();
      $wnd.JSGMapssetContextView = @fdi.ucm.ilsa.gmaps.client.JSGMaps::setContextView(Ljava/lang/String;JIZ);
-     $wnd.JSGMapssetContextEdit = @fdi.ucm.ilsa.gmaps.client.JSGMaps::getIcon();
+     $wnd.JSGMapssetContextEdit = @fdi.ucm.ilsa.gmaps.client.JSGMaps::setContextView(Ljava/lang/String;JIZ);
      $wnd.JSGMapspersist = @fdi.ucm.ilsa.gmaps.client.JSGMaps::getIcon();
  }-*/;
 	 
